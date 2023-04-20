@@ -13,14 +13,15 @@ struct Game {
     var round: Int = 1
     
     mutating func points(sliderValue: Int) -> Int {
-        let difference = sliderValue - target
+        // case: 실패 케이스
+//        let difference = sliderValue - target
+        // case: 성공 케이스
+        let difference = abs(target - sliderValue)
         
         // case: 함수가 잘 못 되었을 때
         round = 100 - difference
         score += round
-        return difference
+        return round
         
-        // case: 바른 함수
-//        100  - abs(target - sliderValue)
     }
 }
